@@ -1,56 +1,59 @@
 name: Vite Build and Deploy
 
 on:
-  # main 브랜치에 푸시가 발생할 때 이 워크플로우를 실행합니다.
+  # main 브랜치에 푸시가 발생하면 실행
   push:
-    branches: [ "main", "master" ]
-  # GitHub Actions 탭에서 수동 실행 가능하도록 설정합니다.
+    branches:
+      - main
+  # Actions 탭에서 수동 실행 가능하도록 설정
   workflow_dispatch:
 
-# 필요한 권한을 명시하여 보안을 강화하고 배포를 가능하게 합니다.
+# 모든 워크플로우 실행에 대한 기본 권한을 명시적으로 '쓰기'로 설정하여 잠금 해제 시도
 permissions:
-  contents: read
-  pages: write
+  contents: write 
+  pages: write 
   id-token: write
-
+  
 jobs:
-  # 1. 빌드 작업
   build:
-    runs-on: ubuntu-latest
+    # 잠금 해제를 위해 Runner 버전을 명시적으로 변경 (ubuntu-latest 대신)
+    runs-on: ubuntu-22.04 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
-      - name: Set up Node.js
+        with:
+          # 소스 브랜치의 깊이를 얕게 설정하여 빠른 실행 유도
+          fetch-depth: 0 
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-          
+
       - name: Install dependencies
-        # 프로젝트의 모든 패키지를 다시 설치합니다.
-        run: npm ci 
-        
-      - name: Build project (Vite)
-        # 🚨 이 단계에서 'dist' 폴더가 GitHub 서버에서 새로 생성됩니다!
-        run: npm run build 
+        run: npm install
+
+      - name: Build project
+        run: npm run build
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v4
+        with:
+          # 빌드 결과 폴더인 dist를 아티팩트로 명시적 지정
+          static_site_generator: vite
 
       - name: Upload artifact
-        # 빌드 결과물인 'dist' 폴더를 배포 아티팩트로 업로드합니다.
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' 
-  
-  # 2. 배포 작업
+          path: './dist'
+          
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build # build 작업이 성공해야만 deploy 작업이 실행됩니다.
+    # Runner 버전 일치
+    runs-on: ubuntu-22.04 
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
