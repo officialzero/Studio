@@ -10,17 +10,17 @@ export default defineConfig({
   base: '/Studio/',
   // ==========================================================
   
-  // 2. React 컴포넌트를 빌드하기 위한 플러그인
+  // 2. 프로젝트 루트 명시
+  // 이 설정을 추가하여 Vite에게 index.html을 현재 디렉토리에서 찾도록 강제합니다.
+  root: '.', // <-- 이 부분이 핵심입니다. 현재 디렉토리를 루트로 설정합니다.
+
+  // 3. React 컴포넌트를 빌드하기 위한 플러그인
   plugins: [react()],
 
-  // 3. 모듈 해석(Resolution) 설정 (경로 별칭 설정)
+  // 4. 모듈 해석(Resolution) 설정 (경로 별칭 설정)
   resolve: {
     alias: {
-      // "@" 경로를 현재 디렉토리(__dirname) 기준으로 "src" 폴더로 매핑합니다.
       "@": path.resolve(__dirname, "./src"),
     },
   },
-
-  // 4. (이전에 추가했던) 불필요한 'build' 및 'rollupOptions' 섹션을 제거합니다.
-  //    Vite가 기본적으로 루트의 index.html을 찾도록 합니다.
 });
