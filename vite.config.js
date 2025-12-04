@@ -7,8 +7,10 @@ export default defineConfig({
   // React 플러그인
   plugins: [react()],
   
-  // GitHub Pages 배포를 위한 base 경로
-  base: '/Studio/',
+  // base 경로
+  // - 로컬 개발 및 프리뷰에서는 반드시 '/' 여야 JS/CSS 경로가 올바르게 동작합니다.
+  // - 커스텀 도메인(예: https://inserview.studio)을 사용하는 경우 base는 '/' 그대로 두면 됩니다.
+  base: '/',
   
   // 경로 별칭 설정
   resolve: {
