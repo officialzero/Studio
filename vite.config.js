@@ -2,22 +2,29 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// https://vitejs.dev/config/
+// Vite 설정 파일
 export default defineConfig({
-  // ==========================================================
-  // 1. GitHub Pages 배포를 위한 핵심 설정 (MUST HAVE)
-  base: '/Studio/',
-  // ==========================================================
-  
-  // 2. React 컴포넌트를 빌드하기 위한 플러그인
+  // React 플러그인
   plugins: [react()],
-
-  // 3. 모듈 해석(Resolution) 설정 (경로 별칭 설정)
+  
+  // GitHub Pages 배포를 위한 base 경로
+  base: '/Studio/',
+  
+  // 경로 별칭 설정
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   
-  // 'build', 'root' 등의 경로 명시 옵션은 모두 제거하여 Vite의 기본 동작을 따릅니다.
+  // CSS 설정 (PostCSS 경로 명시)
+  css: {
+    postcss: './postcss.config.js',
+  },
+  
+  // 빌드 설정
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+  },
 });

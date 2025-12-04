@@ -1,13 +1,8 @@
 /**
- * 🎯 먼저 터미널에서 React Router 설치:
- * npm install react-router-dom
- *
- * 또는
- *
- * yarn add react-router-dom
+ * 메인 App 컴포넌트
+ * HashRouter를 사용한 페이지 라우팅 구현 (GitHub Pages 호환)
  */
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { HeroSection } from "./components/HeroSection";
 import { ServicesSection } from "./components/ServicesSection";
@@ -22,33 +17,30 @@ import { Toaster } from "./components/ui/sonner";
 
 /**
  * 메인 App 컴포넌트
- * React Router를 사용한 페이지 라우팅 구현
+ * HashRouter를 사용하여 GitHub Pages에서 정상 작동
  */
 export default function App() {
   return (
-    // BrowserRouter: React Router의 최상위 컴포넌트
-    // 브라우저 히스토리 API를 사용하여 라우팅 관리
-    <BrowserRouter>
+    // HashRouter: GitHub Pages에서 작동하는 라우터
+    // URL에 #이 붙지만 (예: /#/about) 배포 환경에서 안정적
+    <HashRouter>
       <Routes>
         {/* 홈페이지 경로: "/" */}
         <Route path="/" element={<HomePage />} />
-
+        
         {/* 개인정보처리방침 경로: "/privacy" */}
-        <Route
-          path="/privacy"
-          element={<PrivacyPolicyPage />}
-        />
-
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        
         {/* 이용약관 경로: "/terms" */}
         <Route path="/terms" element={<TermsOfServicePage />} />
-
+        
         {/* 404 페이지 (선택사항) */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-
+      
       {/* Toaster는 모든 페이지에서 공통으로 사용 */}
       <Toaster />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

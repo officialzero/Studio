@@ -1,17 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <!-- 파비콘이나 아이콘 링크는 여기에 추가됩니다 -->
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inserview Studio</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Inserview Studio - 나만의 시선으로 세상을 해석하는 크리에이티브 스튜디오</title>
+    <meta name="title" content="Inserview Studio - 나만의 시선으로 세상을 해석하는 크리에이티브 스튜디오" />
+    <meta name="description" content="Insert my view. 나만의 시선으로 세상을 해석하고 UX, 기획, 콘텐츠로 풀어내는 크리에이티브 스튜디오. Web Development, UI/UX Design, Playful Interaction." />
+    <meta name="keywords" content="Inserview Studio, 웹 개발, UI/UX 디자인, 크리에이티브 스튜디오, Web Development, Mobile App, 인터랙티브 디자인" />
+    <meta name="author" content="Inserview Studio" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://inserview.studio/" />
+    <meta property="og:title" content="Inserview Studio - 나만의 시선으로 세상을 해석하는 크리에이티브 스튜디오" />
+    <meta property="og:description" content="Insert my view. 나만의 시선으로 세상을 해석하고 UX, 기획, 콘텐츠로 풀어내는 크리에이티브 스튜디오." />
+    <meta property="og:image" content="https://inserview.studio/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://inserview.studio/" />
+    <meta property="twitter:title" content="Inserview Studio - 나만의 시선으로 세상을 해석하는 크리에이티브 스튜디오" />
+    <meta property="twitter:description" content="Insert my view. 나만의 시선으로 세상을 해석하고 UX, 기획, 콘텐츠로 풀어내는 크리에이티브 스튜디오." />
+    <meta property="twitter:image" content="https://inserview.studio/og-image.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6366f1" />
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
-    <!-- React 앱이 렌더링될 메인 엘리먼트 -->
+    <!-- React App Root -->
     <div id="root"></div>
     
-    <!-- 이 스크립트 태그가 main.tsx를 로드합니다. 이게 없으면 빌드가 실패합니다! -->
+    <!-- Main Entry Point -->
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Fallback for No JavaScript -->
+    <noscript>
+      <div style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        text-align: center;
+        padding: 2rem;
+      ">
+        <div>
+          <h1 style="font-size: 2rem; margin-bottom: 1rem; color: #6366f1;">
+            Inserview Studio
+          </h1>
+          <p style="font-size: 1.125rem; color: #64748b;">
+            이 웹사이트를 이용하시려면 JavaScript를 활성화해주세요.
+          </p>
+        </div>
+      </div>
+    </noscript>
   </body>
 </html>
