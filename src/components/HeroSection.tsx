@@ -37,7 +37,7 @@ export function HeroSection() {
             <Button
               size="lg"
               onClick={scrollToContact}
-              className="group bg-primary text-primary-foreground hover:bg-primary/90"
+              className="group"
             >
               Get In Touch
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -46,7 +46,6 @@ export function HeroSection() {
               variant="outline"
               size="lg"
               onClick={scrollToServices}
-              className="border border-border bg-background hover:bg-accent"
             >
               View Our Services
             </Button>
@@ -54,27 +53,30 @@ export function HeroSection() {
 
           {/* Feature highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center p-8 bg-card rounded-xl border border-border hover:shadow-lg transition-shadow">
+            <div className="flex flex-col items-center p-6 bg-card rounded-lg border border-border">
               <Code className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-foreground">Custom Development</h3>
-              <p className="text-sm text-muted-foreground text-center">
-                각 프로젝트의 고유한 특성을 이해하고 맞춤형으로 제작합니다.
+              <h3 className="mb-2">Custom Development</h3>
+              <p className="text-muted-foreground text-center">
+                각 프로젝트의 고유한 특성을 이해하고 맞춤형으로
+                제작합니다.
               </p>
             </div>
 
-            <div className="flex flex-col items-center p-8 bg-card rounded-xl border border-border hover:shadow-lg transition-shadow">
+            <div className="flex flex-col items-center p-6 bg-card rounded-lg border border-border">
               <Zap className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-foreground">Lightning Fast</h3>
-              <p className="text-sm text-muted-foreground text-center">
-                빠른 속도와 최적화된 성능으로 사용자 경험을 극대화합니다.
+              <h3 className="mb-2">Lightning Fast</h3>
+              <p className="text-muted-foreground text-center">
+                빠른 속도와 최적화된 성능으로 사용자 경험을
+                극대화합니다.
               </p>
             </div>
 
-            <div className="flex flex-col items-center p-8 bg-card rounded-xl border border-border hover:shadow-lg transition-shadow">
+            <div className="flex flex-col items-center p-6 bg-card rounded-lg border border-border">
               <Users className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-foreground">Insight-Driven</h3>
-              <p className="text-sm text-muted-foreground text-center">
-                나의 시선으로 해석한 관점을 실제 경험으로 구현합니다.
+              <h3 className="mb-2">Insight-Driven</h3>
+              <p className="text-muted-foreground text-center">
+                나의 시선으로 해석한 관점을 실제 경험으로
+                구현합니다.
               </p>
             </div>
           </div>

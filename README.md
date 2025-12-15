@@ -60,7 +60,7 @@ VITE_RECIPIENT_EMAIL=your-email@gmail.com
 
 
 
-## 📂 vscode 프로젝트 구조
+## 📂 프로젝트 구조
 
 ```
 inserview-studio/
@@ -70,8 +70,12 @@ inserview-studio/
 ├── 📁 src/
 ├── 📁 dist/  
 │       │ └── 📁 assets/             
-│       │      └── 📄 index-Ba8qNYhd.js
-│       │      └── 📄 index-D9ukZbqF.css
+│       │      ├── 📄 index-Ba8qNYhd.js
+│       │      ├── 📄 index-CTVxPm67.css
+│       │      ├── 📄 index-D_80V065.css
+│       │      ├── 📄 index-D_B0_HRi.js
+│       │      ├── 📄 index-D_bhMzkC.css
+│       │      └── 📄 index-hWywju2J.js
 │       └── 📄 index.html
 │
 ├── 📁 node_modules

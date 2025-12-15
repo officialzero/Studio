@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
     { label: 'Home', href: '#home' },
@@ -15,8 +18,24 @@ export function Navigation() {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    // 홈페이지가 아니면 먼저 홈으로 이동
+    if (location.pathname !== '/') {
+      navigate('/');
+      // 페이지 이동 후 스크롤
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      // 이미 홈페이지면 바로 스크롤
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const goToHome = () => {
+    navigate('/');
     setIsMenuOpen(false);
   };
 
@@ -24,16 +43,15 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo - 왼쪽 */}
           <div className="flex items-center">
-            <button className="hover:opacity-80 transition-opacity" onClick={() => scrollToSection('#home')}>
+            <button onClick={goToHome} className="hover:opacity-80 transition-opacity">
               <h2 className="text-primary">
                 Inserview <span className="text-[0.65em]">Studio</span>
               </h2>
             </button>
           </div>
           
-          {/* Desktop Navigation - 중앙 */}
+          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
@@ -48,24 +66,18 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Get Started 버튼 - 오른쪽 (데스크톱) */}
           <div className="hidden md:block">
-            <Button 
-              onClick={() => scrollToSection('#contact')}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-            >
+            <Button onClick={() => scrollToSection('#contact')}>
               Get Started
             </Button>
           </div>
 
-          {/* Mobile menu button - 오른쪽 (모바일, 마지막에 배치되어 justify-between으로 오른쪽에 위치) */}
+          {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
               variant="ghost"
-              size="icon"
+              size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-expanded={isMenuOpen}
-              aria-label="Toggle navigation"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -75,12 +87,12 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t border-border shadow-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t border-border">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-foreground hover:text-primary block px-3 py-2 w-full text-left transition-colors text-base rounded-lg"
+                  className="text-foreground hover:text-primary block px-3 py-2 w-full text-left transition-colors"
                 >
                   {item.label}
                 </button>

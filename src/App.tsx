@@ -2,7 +2,7 @@
  * 메인 App 컴포넌트
  * HashRouter를 사용한 페이지 라우팅 구현 (GitHub Pages 호환)
  */
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from 'react-router-dom'; 
 import { Navigation } from "./components/Navigation";
 import { HeroSection } from "./components/HeroSection";
 import { ServicesSection } from "./components/ServicesSection";

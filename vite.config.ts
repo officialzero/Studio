@@ -7,20 +7,20 @@ export default defineConfig({
   // React 플러그인
   plugins: [react()],
   
-  // base 경로
-  // - 로컬 개발 및 프리뷰에서는 반드시 '/' 여야 JS/CSS 경로가 올바르게 동작합니다.
-  // - 커스텀 도메인(예: https://inserview.studio)을 사용하는 경우 base는 '/' 그대로 두면 됩니다.
-  base: '/',
+  // base 경로 설정 (프로덕션 환경에서는 /Studio/를 사용하여 경로 오류 방지)
+  base: process.env.NODE_ENV === 'production' ? '/Studio/' : '/',
   
   // 경로 별칭 설정
   resolve: {
     alias: {
+      // src 디렉토리를 '@'로 별칭 설정
       "@": path.resolve(__dirname, "./src"),
     },
-  },
+  }, 
   
-  // CSS 설정 (PostCSS 경로 명시)
+  // CSS 설정
   css: {
+    // PostCSS 설정 파일 경로 명시 (자동으로 찾지만, 명시해도 무방합니다)
     postcss: './postcss.config.js',
   },
   
