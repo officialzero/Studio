@@ -35,7 +35,6 @@ jobs:
       # ==========================================================
       - name: Build Project
         run: npm run build
-        working-directory: . # <-- 이 줄이 핵심입니다.
         
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
