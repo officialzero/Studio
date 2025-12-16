@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Separator } from '@/components/ui/separator';
+import { Separator } from './ui/separator';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 
 /**
@@ -167,12 +167,12 @@ export function Footer() {
             >
               Terms of Service
             </Link>
-            <a 
-              href="#cookie-policy" 
+            <Link 
+              to="/cookie-policy" 
               className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
               Cookie Policy
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,8 +1,14 @@
 /**
- * 메인 App 컴포넌트
- * HashRouter를 사용한 페이지 라우팅 구현 (GitHub Pages 호환)
+ * 🎯 먼저 터미널에서 React Router 설치:
+ * npm install react-router-dom
+ *
+ * 또는
+ *
+ * yarn add react-router-dom
  */
-import { HashRouter, Routes, Route } from 'react-router-dom'; 
+
+import { HashRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { Navigation } from "./components/Navigation";
 import { HeroSection } from "./components/HeroSection";
 import { ServicesSection } from "./components/ServicesSection";
@@ -13,7 +19,22 @@ import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
+import { CookiePolicy } from "./components/CookiePolicy";
+import { BackToTop } from "./components/BackToTop";
 import { Toaster } from "./components/ui/sonner";
+
+/**
+ * 페이지 이동 시 스크롤을 최상단으로 이동시키는 컴포넌트
+ */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 /**
  * 메인 App 컴포넌트
@@ -24,20 +45,27 @@ export default function App() {
     // HashRouter: GitHub Pages에서 작동하는 라우터
     // URL에 #이 붙지만 (예: /#/about) 배포 환경에서 안정적
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         {/* 홈페이지 경로: "/" */}
         <Route path="/" element={<HomePage />} />
-        
-        {/* 개인정보처리방침 경로: "/privacy" */}
+
+        {/* 개인정보처리방침 경로 */}
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
-        
-        {/* 이용약관 경로: "/terms" */}
+        <Route path="/privacy/:product" element={<PrivacyPolicyPage />} />
+
+        {/* 이용약관 경로 */}
         <Route path="/terms" element={<TermsOfServicePage />} />
-        
+        <Route path="/terms/:product" element={<TermsOfServicePage />} />
+
+        {/* 쿠키 정책 경로 */}
+        <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+        <Route path="/cookie-policy/:product" element={<CookiePolicyPage />} />
+
         {/* 404 페이지 (선택사항) */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      
+
       {/* Toaster는 모든 페이지에서 공통으로 사용 */}
       <Toaster />
     </HashRouter>
@@ -61,6 +89,7 @@ function HomePage() {
         <ContactSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }
@@ -96,6 +125,21 @@ function TermsOfServicePage() {
 }
 
 /**
+ * 쿠키 정책 페이지 컴포넌트
+ */
+function CookiePolicyPage() {
+  return (
+    <div className="min-h-screen">
+      <Navigation />
+      <main>
+        <CookiePolicy />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+/**
  * 404 Not Found 페이지 컴포넌트
  * 잘못된 URL 접근 시 표시
  */
@@ -109,12 +153,12 @@ function NotFoundPage() {
         <p className="text-xl text-muted-foreground mb-8">
           페이지를 찾을 수 없습니다.
         </p>
-        <a
-          href="/"
+        <Link
+          to="/"
           className="inline-block px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
         >
           홈으로 돌아가기
-        </a>
+        </Link>
       </div>
     </div>
   );

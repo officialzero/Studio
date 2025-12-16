@@ -58,86 +58,78 @@ export function PortfolioSection() {
         "https://github.com/inserview-studio/job-clipper",
     },
     {
-      id: "saas-dashboard",
-      title: "SaaS Dashboard",
+      id: "website",
+      title: "Coming Soon",
       description:
-        "A comprehensive analytics dashboard for a B2B SaaS platform with real-time data visualization.",
+        "-",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
       technologies: [
-        "Next.js",
-        "TypeScript",
-        "PostgreSQL",
-        "Chart.js",
+        "-",
+        "-",
       ],
-      category: "Dashboard",
+      category: "-",
       demoUrl: "https://demo.inserview.studio/saas-dashboard",
       githubUrl:
         "https://github.com/inserview-studio/saas-dashboard",
     },
     {
-      id: "restaurant-website",
-      title: "Restaurant Website",
+      id: "website",
+      title: "Coming Soon",
       description:
-        "Modern restaurant website with online reservation system and menu management.",
+        "-",
       image:
         "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
       technologies: [
-        "React",
-        "Tailwind CSS",
-        "Firebase",
-        "Stripe",
+        "-",
+        "-",
       ],
-      category: "Business",
+      category: "-",
       demoUrl: "https://demo.inserview.studio/restaurant",
       githubUrl:
         "https://github.com/inserview-studio/restaurant-website",
     },
     {
-      id: "healthcare-portal",
-      title: "Healthcare Portal",
+      id: "portal",
+      title: "Coming Soon",
       description:
-        "Patient management system with appointment scheduling and medical records.",
+        "-",
       image:
         "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=300&fit=crop",
       technologies: [
-        "Vue.js",
-        "Laravel",
-        "MySQL",
-        "HIPAA Compliant",
+        "-",
+        "-",
       ],
-      category: "Healthcare",
+      category: "-",
       demoUrl: "https://demo.inserview.studio/healthcare",
       githubUrl:
         "https://github.com/inserview-studio/healthcare-portal",
     },
     {
-      id: "real-estate-platform",
-      title: "Real Estate Platform",
+      id: "latform",
+      title: "Coming Soon",
       description:
-        "Property listing website with advanced search, virtual tours, and agent management.",
+        "-",
       image:
         "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&h=300&fit=crop",
-      technologies: ["React", "Node.js", "MongoDB", "Mapbox"],
-      category: "Real Estate",
+      technologies: ["-", "-",],
+      category: "-",
       demoUrl: "https://demo.inserview.studio/real-estate",
       githubUrl:
         "https://github.com/inserview-studio/real-estate-platform",
     },
     {
-      id: "educational-platform",
-      title: "Educational Platform",
+      id: "platform",
+      title: "Coming Soon",
       description:
-        "Online learning management system with course creation and student progress tracking.",
+        "-",
       image:
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop",
       technologies: [
-        "Next.js",
-        "Prisma",
-        "PostgreSQL",
-        "Video.js",
+        "-",
+        "-",
       ],
-      category: "Education",
+      category: "-",
       demoUrl: "https://demo.inserview.studio/education",
       githubUrl:
         "https://github.com/inserview-studio/educational-platform",

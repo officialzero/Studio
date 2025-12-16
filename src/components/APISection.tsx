@@ -62,8 +62,8 @@ export function APISection() {
   const apiList: APIData[] = [
     {
       id: 'user-profile',
-      title: 'Get User Profile',
-      description: '사용자 프로필 정보를 조회합니다',
+      title: 'Coming Soon',
+      description: '-',
       endpoint: '/api/v1/users/{userId}',
       method: 'GET',
       features: ['인증 필요', '캐싱 지원', 'Rate Limit: 100/hour', 'JSON 응답'],
@@ -95,8 +95,8 @@ Content-Type: application/json`,
     },
     {
       id: 'create-project',
-      title: 'Create Project',
-      description: '새로운 프로젝트를 생성합니다',
+      title: 'Coming Soon',
+      description: '-',
       endpoint: '/api/v1/projects',
       method: 'POST',
       features: ['인증 필요', '파일 업로드', 'Webhook 지원', 'JSON 응답'],

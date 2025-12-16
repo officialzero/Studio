@@ -30,7 +30,7 @@ export function AboutSection() {
             </div>
             <p className="text-lg text-muted-foreground mb-6">
               <span className="font-semibold text-foreground">Inserview Studio</span>는 단순한 웹 개발 스튜디오가 아닙니다. 
-              우리는 세상을 나만의 시선으로 해석하고, 그 관점을 UX, 기획, 콘텐츠로 풀어내는 
+              세상을 나만의 시선으로 해석하고, 그 관점을 UX, 기획, 콘텐츠로 풀어내는 
               크리에이티브 스튜디오입니다.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
