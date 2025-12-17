@@ -40,10 +40,16 @@ function ScrollToTop() {
  * 메인 App 컴포넌트
  * HashRouter를 사용하여 GitHub Pages에서 정상 작동
  */
+/**
+  * // HashRouter: GitHub Pages에서 작동하는 라우터
+  * // URL에 #이 붙지만 (예: /#/about) 배포 환경에서 안정적
+  */
+ 
 export default function App() {
   return (
-    // HashRouter: GitHub Pages에서 작동하는 라우터
-    // URL에 #이 붙지만 (예: /#/about) 배포 환경에서 안정적
+
+    <div className="bg-black min-h-screen">
+
     <HashRouter>
       <ScrollToTop />
       <Routes>
@@ -69,6 +75,7 @@ export default function App() {
       {/* Toaster는 모든 페이지에서 공통으로 사용 */}
       <Toaster />
     </HashRouter>
+    </div>
   );
 }
 
