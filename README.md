@@ -136,7 +136,9 @@ inserview-studio/
 │   │           │  
 │   │           ├── AboutSection.tsx 
 │   │           ├── APISection.tsx                 
+│   │           ├── BackToTop.tsx
 │   │           ├── ContactSection.tsx
+│   │           ├── CookiePolicy.tsx
 │   │           ├── Footer.tsx
 │   │           ├── HeroSection.tsx
 │   │           ├── Navigation.tsx

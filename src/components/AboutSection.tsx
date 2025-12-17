@@ -29,13 +29,13 @@ export function AboutSection() {
               </p>
             </div>
             <p className="text-lg text-muted-foreground mb-6">
-              <span className="font-semibold text-foreground">Inserview Studio</span>는 단순한 웹 개발 스튜디오가 아닙니다. 
+              <span className="font-semibold text-foreground">Inserview Studio</span>는 단순한 스튜디오가 아닙니다. 
               세상을 나만의 시선으로 해석하고, 그 관점을 UX, 기획, 콘텐츠로 풀어내는 
               크리에이티브 스튜디오입니다.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
               <span className="font-semibold text-foreground">Insert + View</span>의 언어 유희처럼, 
-              우리는 세상에 나만의 관점을 삽입합니다. 단순히 보이는 것을 기록하는 것이 아니라, 
+              세상에 나만의 관점을 삽입합니다. 단순히 보이는 것을 기록하는 것이 아니라, 
               내 시선으로 바라본 세계를 해석하고 그 인사이트를 실제 경험으로 구현합니다.
             </p>
 

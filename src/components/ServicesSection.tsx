@@ -80,7 +80,7 @@ export function ServicesSection() {
       icon: Wrench,
       title: "Utility Tools",
       description:
-        "일상의 불편함을 해결하는 실용적 도구. Job Clipper처럼 실제 사용자의 pain point를 발견하고, 그것을 효율적으로 해결하는 솔루션을 만듭니다.",
+        "일상의 불편함을 해결하는 실용적 도구. 실제 사용자의 pain point를 발견하고, 그것을 효율적으로 해결하는 솔루션을 만듭니다.",
       features: ["맞춤형 솔루션", "자동화", "통합 지원"],
     },
     {

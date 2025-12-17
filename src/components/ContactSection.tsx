@@ -121,7 +121,7 @@ export function ContactSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">contact@inserview.studio</p>
+                <p className="text-muted-foreground">rhddlstj11@gmail.com</p>
                 <p className="text-muted-foreground">support@inserview.studio</p>
               </CardContent>
             </Card>
@@ -134,7 +134,7 @@ export function ContactSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">+82 10-XXXX-XXXX</p>
+                <p className="text-muted-foreground">+82 10-2035-7617</p>
                 <p className="text-muted-foreground">평일 9AM-6PM KST</p>
               </CardContent>
             </Card>
@@ -149,8 +149,8 @@ export function ContactSection() {
               <CardContent>
                 <p className="text-muted-foreground">
                   서울특별시<br />
-                  강남구<br />
-                  테헤란로 XXX
+                  구<br />
+                  동 XXX
                 </p>
               </CardContent>
             </Card>
