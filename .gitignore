@@ -10,6 +10,12 @@ lerna-debug.log*
 
 Dependencies
 
+dist/
+build/
+
+.DS_Store
+Thumbs.db
+
 node_modules
 
 Environment variables
