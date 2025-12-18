@@ -127,8 +127,8 @@ function InterviewStudioPrivacyPolicy() {
           개인정보 처리에 관한 문의사항이 있으시면 아래 연락처로 문의해 주시기 바랍니다.
         </p>
         <div className="mt-4 text-muted-foreground">
-          <p>이메일: hello@inserview.com</p>
-          <p>전화: +1 (555) 123-4567</p>
+          <p>이메일: rhddlstj11@gmail.com</p>
+          <p>전화: +82 (010) 2035-7617</p>
         </div>
       </section>
 
@@ -151,6 +151,9 @@ function JobClipperPrivacyPolicy() {
         <p className="text-muted-foreground mb-4">
           최종 수정일: 2025년 11월 28일
         </p>
+        <p className="text-muted-foreground mb-4">
+          버전 : 1.0.0
+        </p>
         <p className="text-muted-foreground mb-8">
           Job Clipper는 채용 공고 관리 서비스로, 사용자의 개인정보를 안전하게 보호하며 개인정보 보호법을 준수하고 있습니다.
         </p>
@@ -170,7 +173,6 @@ function JobClipperPrivacyPolicy() {
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
               <li>서비스 제공 및 Notion 연동 관리</li>
-              <li>Notion OAuth 2.0 인증을 통한 접근 권한 획득 및 유효성 확인</li>
               <li>사용자의 Notion 워크스페이스 내 데이터베이스 접근 및 데이터 전송</li>
             </ul>
           </div>
@@ -178,15 +180,15 @@ function JobClipperPrivacyPolicy() {
           <div>
             <h3 className="text-xl mb-3">제2조 (수집 및 저장하는 개인정보의 항목 및 방법)</h3>
             <p className="text-muted-foreground mb-2">
-              본 서비스는 개발자의 서버에 개인정보를 저장하지 않으며, 모든 데이터는 사용자의 브라우저 또는 Notion 서버에만 저장됩니다.
+              본 서비스는 개발자의 외부 서버에 어떠한 개인정보나 클리핑 데이터를 전송되거나 저장하지 않으며, 모든 데이터는 사용자의 브라우저 또는 Notion 서버에만 저장됩니다.
             </p>
             <div className="ml-4 space-y-4">
               <div>
                 <p className="text-muted-foreground mb-2">사용자 기기(브라우저)에 저장되는 정보 (개발자 서버 미저장)</p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                  <li>항목: Notion Access Token (데이터베이스 접근 권한), 사용자가 선택한 Notion Page ID</li>
-                  <li>저장 장소: 사용자의 Chrome 확장 프로그램 로컬 스토리지 (chrome.storage.local)</li>
-                  <li>목적: 매번 로그인 없이 Notion API를 호출하고 클리핑 대상 데이터베이스를 기억하기 위함</li>
+                  <li>필수 정보 항목: Notion Access Token (데이터베이스 접근 권한), 사용자가 선택한 Notion Page ID</li>
+                  <li>로컬 저장 장소: 사용자의 Chrome 확장 프로그램 로컬 스토리지 (chrome.storage.local) 입력하신 Notion 토큰과 데이터베이스 ID는 브라우저의 안전한 로컬 저장소(chrome.storage.local)에 보관되어, 매번 입력할 필요 없이 편리하게 사용하실 수 있습니다.</li>
+                  <li>직접 통신: 데이터 전송 시 중간 서버를 거치지 않고, 사용자의 브라우저에서 Notion API 서버로 직접 데이터를 전송합니다.</li>
                 </ul>
               </div>
               <div>
@@ -216,10 +218,10 @@ function JobClipperPrivacyPolicy() {
               본 서비스는 사용자가 수집한 데이터를 사용자의 지시에 따라 다음의 외부 플랫폼으로 전송할 뿐, 그 외 어떠한 제3자에게도 개인정보를 제공하지 않습니다.
             </p>
             <div className="ml-4">
-              <p className="text-muted-foreground mb-2">Notion Labs, Inc. (국외)</p>
+              <p className="text-muted-foreground mb-2">Notion Labs, Inc. (사용자 본인의 Notion 워크페이스)</p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
                 <li>제공 목적: 사용자가 요청한 채용 공고 데이터를 사용자의 Notion 워크스페이스에 저장하기 위함</li>
-                <li>제공 항목: 채용 공고 데이터 (제목, 내용, URL 등) 및 Notion Access Token</li>
+                <li>제공 항목: 채용 공고 데이터 (제목, 내용, URL 등)</li>
                 <li>보유 및 이용 기간: Notion의 이용약관 및 개인정보 처리방침을 따름</li>
               </ul>
             </div>
@@ -235,20 +237,21 @@ function JobClipperPrivacyPolicy() {
           <div>
             <h3 className="text-xl mb-3">제6조 (개인정보의 안전성 확보 조치)</h3>
             <p className="text-muted-foreground mb-2">
-              개발자는 개인정보가 개발자의 서버에 저장되지 않더라도, 서비스 이용 과정의 안전성 확보 및 투명성 제고를 위해 다음과 같은 기술적·관리적 조치를 취하고 있습니다.
+            본 서비스는 사용자의 데이터를 외부 클라우드나 개발자의 서버로 수집하지 않습니다. 모든 데이터 처리는 사용자가 직접 구동하는 <strong>로컬 환경(127.0.0.1)</strong> 내에서 이루어지며, 보안 및 투명성 제고를 위해 다음과 같은 조치를 취하고 있습니다.
             </p>
             <div className="ml-4 space-y-4">
               <div>
                 <p className="text-muted-foreground mb-2">기술적 조치</p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                  <li>암호화 통신: 개인정보(Notion Access Token 등)의 전송은 HTTPS/SSL 프로토콜을 통한 암호화 통신을 적용하여 안전하게 전송됩니다. (API 통신 표준 준수)</li>
-                  <li>접근 권한 관리: Notion API 접근 시 최소 권한만을 요청하며, Access Token은 보안에 취약한 쿠키 대신 사용자 기기의 로컬 스토리지에 한하여 저장되도록 통제하고 있습니다.</li>
+                  <li>로컬 통신 보안: 확장 프로그램과 로컬 Flask 서버 간의 통신은 사용자의 PC 내부에서만 발생하며, 외부망으로 데이터가 유출되지 않도록 설계되었습니다..</li>
+                  <li>접근 권한 최소화: Notion API 호출 시 사용자가 입력한 토큰은 로컬 서버의 메모리상에서만 일시적으로 처리되며, 외부 인증 서버를 거치지 않고 Notion 공식 API 서버로 직접 전송됩니다.</li>
+                  <li>로컬 저장소 이용: 사용자의 설정값(Token, DB ID)은 브라우저 보안 저장소에 저장되어 타 프로그램의 접근을 차단합니다.</li>
                 </ul>
               </div>
               <div>
                 <p className="text-muted-foreground mb-2">관리적 조치</p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                  <li>내부 통제 원칙: 개발자는 이용자의 Notion Access Token 및 클리핑 데이터에 대해 접근 통제 원칙을 준수하며, 비인가 접근을 차단하기 위한 노력을 지속합니다.</li>
+                  <li>데이터 비소유 원칙: 개발자는 사용자의 로컬 서버에 접속하거나 데이터를 열람할 수 있는 어떠한 권한도 가지고 있지 않습니다. 모든 데이터의 제어권은 사용자 본인에게 있습니다.</li>
                   <li>개인정보 취급자 교육: 개인정보보호 관련 법규 및 지침 준수 교육을 이행하고 있습니다.</li>
                 </ul>
               </div>
@@ -258,41 +261,49 @@ function JobClipperPrivacyPolicy() {
           <div>
             <h3 className="text-xl mb-3">제7조 (개인정보의 파기)</h3>
             <p className="text-muted-foreground mb-2">
-              개발자는 개인정보 보유기간 경과, 처리목적 달성 등으로 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.
+            본 서비스는 사용자가 직접 입력하는 민감 정보(토큰 등)를 별도 서버에 저장하지 않으며, 다음의 원칙에 따라 데이터를 관리 및 파기합니다.
             </p>
             <div className="ml-4">
-              <p className="text-muted-foreground mb-2">파기 절차 및 시점:</p>
+              <p className="text-muted-foreground mb-2">1. 서비스 데이터 (Notion Token)</p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                <li>Access Token: 제3조에서 명시한 바와 같이, 사용자의 확장 프로그램 삭제 또는 Notion 연결 해제 요청 시 효력을 상실하거나 삭제됩니다.</li>
-                <li>일시적 처리 데이터: 클리핑 데이터가 Notion으로 전송되어 처리 목적이 달성되는 즉시, 서버의 메모리 및 임시 로그 파일 등에서 파기됩니다.</li>
+                <li> ･ 사용자가 입력한 모든 설정값은 브라우저의 로컬 스토리지에만 저장됩니다.</li>
+                <li> ･ 사용자가 확장 프로그램을 삭제하거나 브라우저 캐시를 삭제할 경우 즉시 영구 파기됩니다.</li>
+              <p className="text-muted-foreground mb-2">2. 임시 데이터 (로컬 서버)</p>
+                <li> ･ clipper_server.py를 통해 처리되는 모든 데이터는 메모리(RAM) 내에서만 휘발성으로 처리됩니다.</li>
+                <li> ･ 파기 시점: Flask 서버 프로세스를 종료하는 즉시 모든 임시 기록은 소멸됩니다.</li>
+              <p className="text-muted-foreground mb-2">3. 스토어 이용 및 결제 정보</p>
+              <li> ･ 크롬 웹스토어를 통한 설치 및 결제 과정에서 발생하는 정보(이메일, 주문 번호 등)는 구글(Google)의 시스템에 저장되며, 이는 구글의 개인정보 보호정책에 따라 관리됩니다.</li>
+              <li> ･ 개발자는 해당 정보를 마케팅 목적으로 별도 수집하거나 DB화하지 않으며, 환불 처리나 고객 응대 등 서비스 운영에 필요한 최소한의 범위 내에서만 열람합니다.</li>
               </ul>
-              <p className="text-muted-foreground mt-2">파기 방법: 전자적 파일 형태의 정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 파기합니다.</p>
+              <p className="text-muted-foreground mt-2">파기 절차: 전자적 파일 형태인 경우 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제하며, 구글 시스템상의 정보는 구글의 데이터 보유 정책을 따릅니다.</p>
             </div>
           </div>
 
           <div>
             <h3 className="text-xl mb-3">제8조 (정보주체의 권리·의무 및 그 행사방법)</h3>
             <p className="text-muted-foreground mb-2">
-              정보주체는 언제든지 본인의 개인정보(Access Token)에 대한 통제권을 행사할 수 있습니다.
+              정보주체는 자신의 기기 내에서 구동되는 서비스에 대해 완전한 통제권을 가집니다.
             </p>
             <div className="ml-4">
               <p className="text-muted-foreground mb-2">권리 행사 방법:</p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
                 <li>확장 프로그램 삭제: 브라우저에서 확장 프로그램을 삭제하면 기기에 저된 모든 데이터가 즉시 삭제됩니다.</li>
-                <li>Notion 연결 해제: Notion 설정(My connections) 메뉴에서 앱 접근 권한을 해제하면 서비스의 접근이 즉시 차단됩니다.</li>
+                <li>서비스 중단 및 데이터 파기: 브라우저에서 확장 프로그램을 삭제함으로써 모든 개인정보 처리를 중단하고 저장된 데이터를 즉시 삭제할 수 있습니다.</li>
+                <li>결제 정보 확인: 구매 내역 및 결제 관련 정보는 구글 결제 센터 및 크롬 웹스토어 대시보드를 통해 확인 및 관리할 수 있습니다.</li>
               </ul>
             </div>
           </div>
 
           <div>
-            <h3 className="text-xl mb-3">제9조 (개인정보 보호책임자)</h3>
+            <h3 className="text-xl mb-3">제9조 (개인정보 보호책임자 및 문의처)</h3>
             <p className="text-muted-foreground mb-2">
-              개발자는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.
+              서비스 이용 중 발생하는 개인정보 관련 문의나 의견은 아래의 연락처로 보내주시면 성실히 답변해 드리겠습니다.
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-              <li>성명: [공인서]</li>
-              <li>직책: [개발자 / 대표]</li>
-              <li>연락처: [이메일 주소 입력]</li>
+              <li>담장자 성명: [공인서]</li>
+              <li>직책: [개발자]</li>
+              <li>문의처: [rhddlstj11@gmail.com]</li>
+              <li>역할: 개인정보 관련 문의 접수 및 서비스 개선 제안 수렴</li>
             </ul>
           </div>
 
@@ -306,7 +317,8 @@ function JobClipperPrivacyPolicy() {
           <div>
             <h3 className="text-xl mb-3">제11조 (개인정보 처리방침의 변경)</h3>
             <p className="text-muted-foreground">
-              이 개인정보 처리방침은 2025년 11월 28일부터 적용됩니다. 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
+              이 개인정보 처리방침은 시행일로부터 적용되며, 기능 업데이트 등으로 인해 처리 방식이 변경될 경우 서비스 내 공지사항을 띄워 신속히 안내하겠습니다.
+              법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
             </p>
           </div>
 

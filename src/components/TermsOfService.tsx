@@ -184,7 +184,7 @@ function InterviewStudioTerms() {
         </p>
         <div className="mt-4 text-muted-foreground">
           <p>이메일: hello@inserview.com</p>
-          <p>전화: +1 (555) 123-4567</p>
+          <p>전화: +82 (010) 2035-7617</p>
         </div>
       </section>
     </div>
@@ -341,7 +341,7 @@ function JobClipperTerms() {
         <div>
           <h3 className="text-xl mb-3">부칙</h3>
           <p className="text-muted-foreground">
-            이 약관은 2025년 11월 28일부터 시행합니다.
+            이 약관은 00.00.00부터 시행합니다.
           </p>
         </div>
       </div>

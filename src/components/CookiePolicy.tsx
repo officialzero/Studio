@@ -140,7 +140,7 @@ function InterviewStudioCookiePolicy() {
         </p>
         <div className="mt-4 p-4 bg-secondary rounded-lg">
           <p className="text-muted-foreground">
-            <strong>이메일:</strong> privacy@inserview.studio
+            <strong>이메일:</strong> rhddlstj11@gmail.com
           </p>
         </div>
       </section>
@@ -257,7 +257,7 @@ function JobClipperCookiePolicy() {
         </p>
         <div className="mt-4 p-4 bg-secondary rounded-lg">
           <p className="text-muted-foreground">
-            <strong>Email:</strong> privacy@jobclipper.app
+            <strong>Email:</strong> rhddlstj11@gmail.com
           </p>
         </div>
       </section>

@@ -35,7 +35,7 @@ npm run dev
 npm run build
 ```
 
-## 환경 변수 설정 (선택사항)
+## 환경 변수 설정 (선택사항).. 해야하는거..
 
 EmailJS를 사용하여 컨택트 폼을 활성화하려면 다음 환경 변수를 설정하세요:
 
@@ -56,7 +56,7 @@ VITE_RECIPIENT_EMAIL=your-email@gmail.com
 
 ## 연락처
 
-더 많은 정보는 [Inserview Studio](https://inserview.studio)를 방문해주세요.
+더 많은 정보는 [Inserview Studio](https://officialzero.github.io/Studio/#/)를 방문해주세요.
 
 
 
@@ -67,21 +67,16 @@ inserview-studio/
 ├──📁 .github/             
 │           └── 📁 workflows/             
 │             └── 📄 deploy.yml
-├── 📁 src/
 ├── 📁 dist/  
 │       │ └── 📁 assets/             
-│       │      ├── 📄 index-Ba8qNYhd.js
-│       │      ├── 📄 index-CTVxPm67.css
-│       │      ├── 📄 index-D_80V065.css
-│       │      ├── 📄 index-D_B0_HRi.js
-│       │      ├── 📄 index-D_bhMzkC.css
-│       │      └── 📄 index-hWywju2J.js
+│       │      ├── 📄 index-DEPLjy-n.js
+│       │      ├── 📄 index-DL4JYfj8.css
 │       └── 📄 index.html
 │
 ├── 📁 node_modules
-│            └── 📄 여기도 무수히 많은 파일이 있지만 작성 힘들어서 생략 
+│            └── 📄 ....
 ├── 📁 src/
-│   ├── 📁 components/             # React 컴포넌트
+│   ├── 📁 components/             
 │   │           │  ├── 📁 fi/             
 │   │           │  │      └── 📄 ImageWithFallback.tsx                
 │   │           │  └── 📁 ui/ 
