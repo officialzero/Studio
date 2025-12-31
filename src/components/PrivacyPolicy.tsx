@@ -500,8 +500,15 @@ function JobClipperPrivacyPolicyEN() {
                 <p className="text-muted-foreground mb-1 font-medium">Data Stored on User Device (Local Storage)</p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
                   <li><strong>Required Items:</strong> Notion Access Token, Notion Database/Page ID.</li>
-                  <li><strong>Storage Location:</strong> Chrome Extension local storage (chrome.storage.local).</li>
-                  <li><strong>Direct Communication:</strong> Data is sent directly from the user's browser to Notion's API servers.</li>
+                  <li><strong>Storage Location:</strong> Chrome Extension local storage (chrome.storage.local). These credentials are kept securely in your browser to avoid repeated entry.</li>
+                  <li><strong>Direct Communication:</strong> Data is sent directly from the user's browser to Notion's API servers without passing through any intermediate servers.</li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-muted-foreground mb-1 font-medium">Temporary Processed Data (Volatile)</p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                  <li><strong>Clipping Targets:</strong> Job title, company name, URL, and content.</li>
+                  <li>This data is processed temporarily in memory during transmission and is never permanently stored on the developer's server.</li>
                 </ul>
               </div>
             </div>
@@ -516,9 +523,39 @@ function JobClipperPrivacyPolicyEN() {
           </div>
 
           <div>
-            <h3 className="text-xl mb-3 font-semibold">Article 4 (Contact Information)</h3>
+            <h3 className="text-xl mb-3 font-semibold">Article 4 (Third-Party Provision)</h3>
+            <p className="text-muted-foreground mb-2">The Service only transmits data to the following external platform as directed by the user:</p>
+            <div className="ml-4">
+              <p className="text-muted-foreground mb-1 font-medium">Notion Labs, Inc. (User's personal workspace)</p>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                <li>Purpose: Saving job posting data to the user's Notion database.</li>
+                <li>Items: Job data (title, company, URL, etc.).</li>
+                <li>Retention: Governed by Notion's own Terms of Service and Privacy Policy.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 5 (Safety Measures)</h3>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-              <li>Developer: Inseo Gong</li>
+              <li><strong>End-to-End Security:</strong> All data is sent directly to Notion's official API; no intermediate servers are used.</li>
+              <li><strong>Encryption:</strong> User settings (Token, DB ID) are stored using Chrome's encrypted storage API.</li>
+              <li><strong>Data Non-Ownership:</strong> The developer has no authority or technical means to access the user's local storage or data.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 6 (User Rights)</h3>
+            <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+              <li>Uninstallation: Deleting the extension from the browser immediately removes all stored local data.</li>
+              <li>Payment Info: Purchase and payment details are managed via Google's system.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 7 (Contact Information)</h3>
+            <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+              <li>Developer Name: Inseo Gong</li>
               <li>Email: rhddlstj11@gmail.com</li>
             </ul>
           </div>
