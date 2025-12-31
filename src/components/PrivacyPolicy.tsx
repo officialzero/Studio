@@ -1,10 +1,12 @@
 import { ArrowLeft } from 'lucide-react';
 import { Button } from './ui/button';
 import { useParams, Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export function PrivacyPolicy() {
   const { product } = useParams<{ product: 'inserview' | 'job-clipper' }>();
   const isInserview = product === 'inserview' || !product;
+  const [language, setLanguage] = useState<'ko' | 'en'>('ko');
 
   const handleBack = () => {
     window.history.back();
@@ -23,7 +25,41 @@ export function PrivacyPolicy() {
         </Button>
 
         <div className="mb-8">
-          <h1 className="text-4xl mb-4">Privacy Policy</h1>
+          <div className="flex justify-between items-center mb-4">
+            <h1 className="text-4xl">Privacy Policy</h1>
+
+            {/* 언어 토글 스위치 */}
+            <div className="relative inline-flex items-center bg-secondary rounded-full p-1 w-28 h-10">
+              {/* 슬라이딩 배경 */}
+              <div 
+                className={`absolute top-1 bottom-1 w-[calc(50%-4px)] bg-primary rounded-full transition-all duration-300 ease-in-out ${
+                  language === 'en' ? 'left-[calc(50%+2px)]' : 'left-1'
+                }`}
+              />
+              
+              {/* Ko 버튼 */}
+              <button
+                onClick={() => setLanguage('ko')}
+                className={`relative z-10 flex-1 text-sm font-medium transition-colors duration-300 ${
+                  language === 'ko' ? 'text-primary-foreground' : 'text-muted-foreground'
+                }`}
+              >
+                Ko
+              </button>
+              
+              {/* En 버튼 */}
+              <button
+                onClick={() => setLanguage('en')}
+                className={`relative z-10 flex-1 text-sm font-medium transition-colors duration-300 ${
+                  language === 'en' ? 'text-primary-foreground' : 'text-muted-foreground'
+                }`}
+              >
+                En
+              </button>
+            </div>
+          </div>
+          
+          {/* 제품 선택 버튼 */}
           <div className="flex gap-4">
             <Link 
               to="/privacy/inserview"
@@ -48,13 +84,17 @@ export function PrivacyPolicy() {
           </div>
         </div>
         
-        {isInserview ? <InterviewStudioPrivacyPolicy /> : <JobClipperPrivacyPolicy />}
+        {isInserview ? (
+          language === 'ko' ? <InserviewStudioPrivacyPolicy /> : <InserviewStudioPrivacyPolicyEN />
+        ) : (
+          language === 'ko' ? <JobClipperPrivacyPolicy /> : <JobClipperPrivacyPolicyEN />
+        )}
       </div>
     </div>
   );
 }
 
-function InterviewStudioPrivacyPolicy() {
+function InserviewStudioPrivacyPolicy() {
   return (
     <div className="prose prose-slate dark:prose-invert max-w-none space-y-6">
       <section>
@@ -237,22 +277,22 @@ function JobClipperPrivacyPolicy() {
           <div>
             <h3 className="text-xl mb-3">제6조 (개인정보의 안전성 확보 조치)</h3>
             <p className="text-muted-foreground mb-2">
-            본 서비스는 사용자의 데이터를 외부 클라우드나 개발자의 서버로 수집하지 않습니다. 모든 데이터 처리는 사용자가 직접 구동하는 <strong>로컬 환경(127.0.0.1)</strong> 내에서 이루어지며, 보안 및 투명성 제고를 위해 다음과 같은 조치를 취하고 있습니다.
+            본 서비스는 사용자의 데이터를 외부 클라우드나 개발자의 서버로 수집하지 않습니다. 모든 데이터 처리는 사용자의 <strong>브라우저 내부 환경</strong> 내에서만 이루어지며, 보안 및 투명성 제고를 위해 다음과 같은 조치를 취하고 있습니다.
             </p>
             <div className="ml-4 space-y-4">
               <div>
                 <p className="text-muted-foreground mb-2">기술적 조치</p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                  <li>로컬 통신 보안: 확장 프로그램과 로컬 Flask 서버 간의 통신은 사용자의 PC 내부에서만 발생하며, 외부망으로 데이터가 유출되지 않도록 설계되었습니다..</li>
-                  <li>접근 권한 최소화: Notion API 호출 시 사용자가 입력한 토큰은 로컬 서버의 메모리상에서만 일시적으로 처리되며, 외부 인증 서버를 거치지 않고 Notion 공식 API 서버로 직접 전송됩니다.</li>
-                  <li>로컬 저장소 이용: 사용자의 설정값(Token, DB ID)은 브라우저 보안 저장소에 저장되어 타 프로그램의 접근을 차단합니다.</li>
+                  <li>종단간 보안: 모든 데이터는 사용자의 브라우저에서 Notion 공식 API 서버로 직접 전송되며, 중간 서버를 거치지 않아 데이터 유출 위험이 없습니다.</li>
+                  <li>접근 권한 최소화: Notion API 호출 시 사용자가 입력한 토큰은 브라우저의 메모리상에서만 일시적으로 처리되며, 외부 인증 서버를 경유하지 않습니다.</li>
+                  <li>브라우저 보안 저장소 이용: 사용자의 설정값(Token, DB ID)은 Chrome에서 제공하는 암호화된 보안 저장소(chrome.storage.local)에 저장되어 타 프로그램의 접근을 차단합니다.</li>
                 </ul>
               </div>
               <div>
                 <p className="text-muted-foreground mb-2">관리적 조치</p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                  <li>데이터 비소유 원칙: 개발자는 사용자의 로컬 서버에 접속하거나 데이터를 열람할 수 있는 어떠한 권한도 가지고 있지 않습니다. 모든 데이터의 제어권은 사용자 본인에게 있습니다.</li>
-                  <li>개인정보 취급자 교육: 개인정보보호 관련 법규 및 지침 준수 교육을 이행하고 있습니다.</li>
+                  <li>데이터 비소유 원칙: 개발자는 사용자의 개인적인 설정값이나 저장된 데이터에 접속하거나 열람할 수 있는 어떠한 권한도 가지고 있지 않습니다.</li>
+                  <li>개인정보 취급 지침 준수: 개발자는 정보주체의 개인정보 보호를 위해 관련 법규를 준수하며 지속적으로 서비스 보안을 점검합니다.</li>
                 </ul>
               </div>
             </div>
@@ -264,18 +304,24 @@ function JobClipperPrivacyPolicy() {
             본 서비스는 사용자가 직접 입력하는 민감 정보(토큰 등)를 별도 서버에 저장하지 않으며, 다음의 원칙에 따라 데이터를 관리 및 파기합니다.
             </p>
             <div className="ml-4">
-              <p className="text-muted-foreground mb-2">1. 서비스 데이터 (Notion Token)</p>
+              <p className="text-muted-foreground mb-2">1. 서비스 설정 데이터 (Notion Token, Database ID)</p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                <li> ･ 사용자가 입력한 모든 설정값은 브라우저의 로컬 스토리지에만 저장됩니다.</li>
-                <li> ･ 사용자가 확장 프로그램을 삭제하거나 브라우저 캐시를 삭제할 경우 즉시 영구 파기됩니다.</li>
-              <p className="text-muted-foreground mb-2">2. 임시 데이터 (로컬 서버)</p>
-                <li> ･ clipper_server.py를 통해 처리되는 모든 데이터는 메모리(RAM) 내에서만 휘발성으로 처리됩니다.</li>
-                <li> ･ 파기 시점: Flask 서버 프로세스를 종료하는 즉시 모든 임시 기록은 소멸됩니다.</li>
-              <p className="text-muted-foreground mb-2">3. 스토어 이용 및 결제 정보</p>
-              <li> ･ 크롬 웹스토어를 통한 설치 및 결제 과정에서 발생하는 정보(이메일, 주문 번호 등)는 구글(Google)의 시스템에 저장되며, 이는 구글의 개인정보 보호정책에 따라 관리됩니다.</li>
-              <li> ･ 개발자는 해당 정보를 마케팅 목적으로 별도 수집하거나 DB화하지 않으며, 환불 처리나 고객 응대 등 서비스 운영에 필요한 최소한의 범위 내에서만 열람합니다.</li>
+                <li>사용자가 입력한 모든 설정값은 브라우저의 로컬 스토리지에만 저장됩니다.</li>
+                <li>사용자가 확장 프로그램을 삭제하거나 브라우저의 확장 프로그램 데이터를 삭제할 경우 해당 정보는 즉시 영구 파기됩니다.</li>
               </ul>
-              <p className="text-muted-foreground mt-2">파기 절차: 전자적 파일 형태인 경우 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제하며, 구글 시스템상의 정보는 구글의 데이터 보유 정책을 따릅니다.</p>
+              
+              <p className="text-muted-foreground mb-2 mt-4">2. 클리핑 데이터 (공고 정보)</p>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                <li>채용 공고에서 추출된 정보는 전송을 위해 메모리상에서만 일시적으로 처리됩니다.</li>
+                <li>데이터 전송이 완료되거나 팝업 창이 닫히는 즉시 메모리 내 기록은 소멸되며, 개발자의 환경에는 어떠한 기록도 남지 않습니다.</li>
+              </ul>
+
+              <p className="text-muted-foreground mb-2 mt-4">3. 스토어 이용 정보</p>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                <li>크롬 웹스토어를 통한 설치 과정에서 발생하는 정보는 구글(Google)의 시스템에 저장되며, 이는 구글의 개인정보 보호정책에 따라 관리됩니다.</li>
+                <li>개발자는 서비스 운영(문의 대응 등)에 필요한 최소한의 범위 내에서만 해당 정보를 열람하며, 별도의 DB로 수집하지 않습니다.</li>
+              </ul>
+              <p className="text-muted-foreground mt-4">파기 절차: 전자적 파일 형태인 정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제하며, 시스템 삭제 시 복구 불가능한 상태로 처리됩니다.</p>
             </div>
           </div>
 
@@ -300,9 +346,8 @@ function JobClipperPrivacyPolicy() {
               서비스 이용 중 발생하는 개인정보 관련 문의나 의견은 아래의 연락처로 보내주시면 성실히 답변해 드리겠습니다.
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-              <li>담장자 성명: [공인서]</li>
-              <li>직책: [개발자]</li>
-              <li>문의처: [rhddlstj11@gmail.com]</li>
+              <li>담장자 성명: 공인서</li>
+              <li>문의처: rhddlstj11@gmail.com</li>
               <li>역할: 개인정보 관련 문의 접수 및 서비스 개선 제안 수렴</li>
             </ul>
           </div>
@@ -325,6 +370,162 @@ function JobClipperPrivacyPolicy() {
           <div className="mt-6 pt-4 border-t">
             <p className="text-muted-foreground text-center">
               [잡 클리퍼 제작자/공인서]
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+// 새로운 영어 버전 컴포넌트들
+function InserviewStudioPrivacyPolicyEN() {
+  return (
+    <div className="prose prose-slate dark:prose-invert max-w-none space-y-6">
+      <section>
+        <h2 className="text-2xl mb-4">Privacy Policy</h2>
+        <p className="text-muted-foreground mb-4">Last Updated: November 28, 2025</p>
+        <p className="text-muted-foreground">
+          Inserview Studio values your privacy and complies with privacy protection laws.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-2xl mb-4">1. Personal Information We Collect</h2>
+        <p className="text-muted-foreground mb-2">We collect the following personal information:</p>
+        <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+          <li>Name</li>
+          <li>Email address</li>
+          <li>Phone number (optional)</li>
+          <li>Inquiry content</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="text-2xl mb-4">2. Purpose of Collection and Use</h2>
+        <p className="text-muted-foreground mb-2">Collected personal information is used for:</p>
+        <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+          <li>Responding to inquiries and feedback</li>
+          <li>Service improvement and user experience enhancement</li>
+          <li>Delivery of important notices</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="text-2xl mb-4">3. Retention Period</h2>
+        <p className="text-muted-foreground">
+          Collected personal information is destroyed immediately after the purpose is achieved. 
+          However, it may be retained for the period required by relevant laws.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-2xl mb-4">4. Third-Party Disclosure</h2>
+        <p className="text-muted-foreground">
+          We do not disclose personal information to third parties in principle, 
+          except when required by law.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-2xl mb-4">5. User Rights</h2>
+        <p className="text-muted-foreground mb-2">Users may exercise the following rights at any time:</p>
+        <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+          <li>Request access to personal information</li>
+          <li>Request correction of personal information</li>
+          <li>Request deletion of personal information</li>
+          <li>Request suspension of personal information processing</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="text-2xl mb-4">6. Privacy Officer</h2>
+        <p className="text-muted-foreground">
+          For inquiries regarding personal information processing, please contact:
+        </p>
+        <div className="mt-4 text-muted-foreground">
+          <p>Email: rhddlstj11@gmail.com</p>
+          <p>Phone: +82 (010) 2035-7617</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl mb-4">7. Policy Changes</h2>
+        <p className="text-muted-foreground">
+          This privacy policy may be revised according to changes in laws and policies. 
+          Changes will be announced through our website.
+        </p>
+      </section>
+    </div>
+  );
+}
+
+function JobClipperPrivacyPolicyEN() {
+  return (
+    <div className="prose prose-slate dark:prose-invert max-w-none space-y-6">
+      <section>
+        <h2 className="text-2xl mb-4 font-bold">Job Clipper Privacy Policy</h2>
+        <p className="text-muted-foreground mb-4">Last Updated: November 28, 2025</p>
+        <p className="text-muted-foreground mb-4">Version: 1.0.0</p>
+        <p className="text-muted-foreground mb-8">
+          Job Clipper is a job posting management service that safely protects user privacy and complies with privacy protection laws.
+        </p>
+      </section>
+
+      <section>
+        <p className="text-muted-foreground mb-6">
+          The developer establishes and discloses this privacy policy to protect the personal information of data subjects and handle related grievances promptly and smoothly in accordance with Article 30 of the Personal Information Protection Act.
+        </p>
+
+        <div className="space-y-8">
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 1 (Purpose of Processing Personal Information)</h3>
+            <p className="text-muted-foreground mb-2">
+              This service (Job Clipper) does not store personal information on the developer's server. However, minimal information is processed within the user's device or transmitted to Notion for the following purposes:
+            </p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+              <li>Service provision and Notion integration management</li>
+              <li>Access to databases in user's Notion workspace and data transmission</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 2 (Information Collected and Stored)</h3>
+            <p className="text-muted-foreground mb-2">
+              The Service does not transmit or store any personal information or clipping data to external developer servers. All data is stored only in the user's browser or on Notion's servers.
+            </p>
+            <div className="ml-4 space-y-4">
+              <div>
+                <p className="text-muted-foreground mb-1 font-medium">Data Stored on User Device (Local Storage)</p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                  <li><strong>Required Items:</strong> Notion Access Token, Notion Database/Page ID.</li>
+                  <li><strong>Storage Location:</strong> Chrome Extension local storage (chrome.storage.local).</li>
+                  <li><strong>Direct Communication:</strong> Data is sent directly from the user's browser to Notion's API servers.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 3 (Retention and Period)</h3>
+            <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+              <li>Retention: Data remains on the user's device until the extension is deleted.</li>
+              <li>Destruction: Credentials are deleted immediately when the user removes the extension.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 4 (Contact Information)</h3>
+            <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+              <li>Developer: Inseo Gong</li>
+              <li>Email: rhddlstj11@gmail.com</li>
+            </ul>
+          </div>
+
+          <div className="mt-10 pt-6 border-t">
+            <p className="text-muted-foreground text-center font-bold">
+              [Job Clipper / Inseo Gong]
             </p>
           </div>
         </div>
