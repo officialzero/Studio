@@ -304,10 +304,10 @@ function getProjectData(projectId?: string): ProjectData | null {
 
 개인정보는 사용자의 브라우저에만 암호화되어 저장되며, 개발자 서버로 전송되지 않습니다.`,
       image: 'https://images.unsplash.com/photo-1675557009483-e6cf3867976b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      technologies: ['Chrome Extension', 'TypeScript', 'Notion API', 'Chrome Storage API'],
+      technologies: ['Chrome Extension', 'TypeScript', 'Notion', 'Chrome Storage'],
       category: 'Utility Tools',
       demoUrl: 'https://chrome.google.com/webstore/detail/job-clipper',
-      githubUrl: 'https://github.com/officialzero/JobNotion-Clipper',
+      githubUrl: 'https://github.com/officialzero/Job-Clipper',
       features: [
         '잡코리아, 사람인, 원티드, 인크루트 지원',
         '클릭 한 번으로 자동 저장',
