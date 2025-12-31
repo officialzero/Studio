@@ -469,29 +469,29 @@ function JobClipperPrivacyPolicyEN() {
         <p className="text-muted-foreground mb-4">Last Updated: November 28, 2025</p>
         <p className="text-muted-foreground mb-4">Version: 1.0.0</p>
         <p className="text-muted-foreground mb-8">
-          Job Clipper is a job posting management service that safely protects user privacy and complies with privacy protection laws.
+        Job Clipper is a job posting management service that protects user privacy and complies with data protection regulations.
         </p>
       </section>
 
       <section>
         <p className="text-muted-foreground mb-6">
-          The developer establishes and discloses this privacy policy to protect the personal information of data subjects and handle related grievances promptly and smoothly in accordance with Article 30 of the Personal Information Protection Act.
+        Developer Inseo Gong (the "Developer") has established this Privacy Policy to protect users' personal information and handle privacy concerns promptly.
         </p>
 
         <div className="space-y-8">
           <div>
-            <h3 className="text-xl mb-3 font-semibold">Article 1 (Purpose of Processing Personal Information)</h3>
+            <h3 className="text-xl mb-3 font-semibold">Article 1 (Purpose of Data Processing)</h3>
             <p className="text-muted-foreground mb-2">
-              This service (Job Clipper) does not store personal information on the developer's server. However, minimal information is processed within the user's device or transmitted to Notion for the following purposes:
+              This service (Job Clipper) does not store personal information on external servers.  The extension processes minimal data only within the user's device or transmits it directly to Notion for:
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-              <li>Service provision and Notion integration management</li>
-              <li>Access to databases in user's Notion workspace and data transmission</li>
+              <li>Providing the service and managing Notion integration</li>
+              <li>Accessing user's Notion workspace database and transmitting data</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl mb-3 font-semibold">Article 2 (Information Collected and Stored)</h3>
+            <h3 className="text-xl mb-3 font-semibold">Article 2 (Data Collection and Storage)</h3>
             <p className="text-muted-foreground mb-2">
               The Service does not transmit or store any personal information or clipping data to external developer servers. All data is stored only in the user's browser or on Notion's servers.
             </p>
@@ -499,7 +499,7 @@ function JobClipperPrivacyPolicyEN() {
               <div>
                 <p className="text-muted-foreground mb-1 font-medium">Data Stored on User Device (Local Storage)</p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                  <li><strong>Required Items:</strong> Notion Access Token, Notion Database/Page ID.</li>
+                  <li><strong>What is stored:</strong> Notion Access Token, Notion Database/Page ID.</li>
                   <li><strong>Storage Location:</strong> Chrome Extension local storage (chrome.storage.local). These credentials are kept securely in your browser to avoid repeated entry.</li>
                   <li><strong>Direct Communication:</strong> Data is sent directly from the user's browser to Notion's API servers without passing through any intermediate servers.</li>
                 </ul>
@@ -508,6 +508,8 @@ function JobClipperPrivacyPolicyEN() {
                 <p className="text-muted-foreground mb-1 font-medium">Temporary Processed Data (Volatile)</p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
                   <li><strong>Clipping Targets:</strong> Job title, company name, URL, and content.</li>
+                  <li><strong>How:</strong> Processed temporarily in memory during transmission.</li>
+                  <li><strong>Storage:</strong> Not permanently stored anywhere; discarded immediately after transmission.</li>
                   <li>This data is processed temporarily in memory during transmission and is never permanently stored on the developer's server.</li>
                 </ul>
               </div>
@@ -515,49 +517,131 @@ function JobClipperPrivacyPolicyEN() {
           </div>
 
           <div>
-            <h3 className="text-xl mb-3 font-semibold">Article 3 (Retention and Period)</h3>
+            <h3 className="text-xl mb-3 font-semibold">Article 3 (Data Retention and Period)</h3>
+            <p className="text-muted-foreground mb-2">
+            The Developer does not retain user personal information.
+            </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
               <li>Retention: Data remains on the user's device until the extension is deleted.</li>
-              <li>Destruction: Credentials are deleted immediately when the user removes the extension.</li>
+              <li>Destruction: All data is deleted immediately when the user removes the extension from Chrome.</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl mb-3 font-semibold">Article 4 (Third-Party Provision)</h3>
-            <p className="text-muted-foreground mb-2">The Service only transmits data to the following external platform as directed by the user:</p>
+            <h3 className="text-xl mb-3 font-semibold">Article 4 (Third-Party Data Provision)</h3>
+            <p className="text-muted-foreground mb-2">Job Clipper only transmits user data to the following platform as instructed by the user:</p>
             <div className="ml-4">
               <p className="text-muted-foreground mb-1 font-medium">Notion Labs, Inc. (User's personal workspace)</p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                <li>Purpose: Saving job posting data to the user's Notion database.</li>
-                <li>Items: Job data (title, company, URL, etc.).</li>
-                <li>Retention: Governed by Notion's own Terms of Service and Privacy Policy.</li>
+                <li>Purpose: Save job posting data to the user's personal Notion workspace.</li>
+                <li>Items: Job posting information (title, company, URL, etc.).</li>
+                <li>Retention: Subject to Notion's Terms of Service and Privacy Policy.</li>
               </ul>
             </div>
           </div>
 
           <div>
-            <h3 className="text-xl mb-3 font-semibold">Article 5 (Safety Measures)</h3>
+            <h3 className="text-xl mb-3 font-semibold">Article 5 (Data Processing Outsourcing)</h3>
+            <p className="text-muted-foreground mb-2">
+            Job Clipper does not maintain a member database and has no outsourcing contracts for personal data processing.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 6 (Security Measures)</h3>
+            <p className="text-muted-foreground mb-2">
+            Job Clipper does not collect user data to external servers. All data processing occurs within the user's browser.
+            </p>
+            <div className="ml-4 space-y-4">
+              <div>
+                <p className="text-muted-foreground mb-1 font-medium">Technical Measures</p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
               <li><strong>End-to-End Security:</strong> All data is sent directly to Notion's official API; no intermediate servers are used.</li>
               <li><strong>Encryption:</strong> User settings (Token, DB ID) are stored using Chrome's encrypted storage API.</li>
               <li><strong>Data Non-Ownership:</strong> The developer has no authority or technical means to access the user's local storage or data.</li>
             </ul>
           </div>
+          <div>
+                <p className="text-muted-foreground mb-1 font-medium">Management Measures</p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+              <li><strong>No access principle:</strong> The Developer has no ability to access or view user data.</li>
+              <li><strong>Ongoing security reviews:</strong> The service is regularly reviewed for compliance with data protection standards.</li>
+            </ul>
+          </div>
+          </div>
+          </div>
 
           <div>
-            <h3 className="text-xl mb-3 font-semibold">Article 6 (User Rights)</h3>
+            <h3 className="text-xl mb-3 font-semibold">Article 7 (Data Deletion)</h3>
+            <p className="text-muted-foreground mb-2">
+            Job Clipper does not store sensitive information (tokens) on external servers.
+            </p>
+            <div className="ml-4 space-y-4">
+              <div>
+                <p className="text-muted-foreground mb-1 font-medium">Service Settings (Notion Token, Database ID)</p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                  <li> Stored only in browser local storage</li>
+                  <li> Deleted permanently when the extension is uninstalled or browser data is cleared</li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-muted-foreground mb-1 font-medium">Clipping Data (Job Information)</p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                  <li> Processed temporarily in memory only</li>
+                  <li> Discarded immediately after transmission or when the popup closes</li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-muted-foreground mb-1 font-medium">Chrome Web Store Data</p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                  <li> Installation and payment information is stored in Google's systems</li>
+                  <li> Managed according to Google's Privacy Policy</li>
+                  <li> The Developer only accesses this information for support purposes and does not create separate databases</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 8 (User Rights)</h3>
+            <p className="text-muted-foreground mb-2">Users have full control over the service running in their device</p>
+            <div className="ml-4">
+              <p className="text-muted-foreground mb-1 font-medium">How to exercise your rights:</p>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                <li>Uninstall extension: Remove the extension from your browser to delete all stored data</li>
+                <li>Stop service and delete data: Uninstalling the extension immediately stops all data processing</li>
+                <li>Payment information: View and manage purchase history through Google Payment Center and Chrome Web Store dashboard
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 9 (Privacy Contact)</h3>
+            <div className="ml-4">
+              <p className="text-muted-foreground mb-1 font-medium">For privacy-related inquiries:</p>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                <li>Developer: Inseo Gong</li>
+                <li>Email: rhddlstj11@gmail.com</li>
+                <li>Role: Privacy inquiries and service improvement suggestions</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl mb-3 font-semibold">Article 10 (Dispute Resolution)</h3>
+            <p className="text-muted-foreground mb-2">Users may seek remedy for privacy violations through:</p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-              <li>Uninstallation: Deleting the extension from the browser immediately removes all stored local data.</li>
-              <li>Payment Info: Purchase and payment details are managed via Google's system.</li>
+              <li>Personal Information Dispute Mediation Committee</li>
+              <li>Korea Internet & Security Agency (KISA) Privacy Complaint Center</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl mb-3 font-semibold">Article 7 (Contact Information)</h3>
-            <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-              <li>Developer Name: Inseo Gong</li>
-              <li>Email: rhddlstj11@gmail.com</li>
-            </ul>
+            <h3 className="text-xl mb-3 font-semibold">Article 11 (Privacy Policy Updates)</h3>
+            <p className="text-muted-foreground mb-2">
+            This Privacy Policy is effective from the date of publication. If processing methods change due to feature updates, users will be notified through in-service announcements at least 7 days before changes take effect.
+            </p>
           </div>
 
           <div className="mt-10 pt-6 border-t">
