@@ -20,6 +20,7 @@ import { Footer } from "./components/Footer";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
 import { CookiePolicy } from "./components/CookiePolicy";
+import { ProjectDetail } from "./components/ProjectDetail";
 import { BackToTop } from "./components/BackToTop";
 import { Toaster } from "./components/ui/sonner";
 
@@ -49,6 +50,10 @@ export default function App() {
       <Routes>
         {/* 홈페이지 경로: "/" */}
         <Route path="/" element={<HomePage />} />
+
+        {/* 🔥 프로젝트 상세 페이지 라우트 추가 */}
+        <Route path="/project/:projectId" element={<ProjectDetailPage />} />
+        <Route path="/project/:projectId/:tab" element={<ProjectDetailPage />} />
 
         {/* 개인정보처리방침 경로 */}
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
@@ -90,6 +95,19 @@ function HomePage() {
       </main>
       <Footer />
       <BackToTop />
+    </div>
+  );
+}
+
+// 🔥 프로젝트 상세 페이지 컴포넌트 추가
+function ProjectDetailPage() {
+  return (
+    <div className="min-h-screen">
+      <Navigation />
+      <main>
+        <ProjectDetail />
+      </main>
+      <Footer />
     </div>
   );
 }

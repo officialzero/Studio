@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { ImageWithFallback } from "@/components/fi/ImageWithFallback";
+import { useNavigate } from "react-router-dom"; // 🔥 추가
 
 /**
  * Inserview Studio의 포트폴리오 프로젝트를 보여주는 섹션 컴포넌트
@@ -36,6 +37,7 @@ interface ProjectData {
 }
 
 export function PortfolioSection() {
+  const navigate = useNavigate(); // 🔥 추가
   // 프로젝트 목록 데이터
   const projectList: ProjectData[] = [
     {
@@ -141,6 +143,11 @@ export function PortfolioSection() {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
+  // 🔥 프로젝트 상세 페이지로 이동하는 함수 추가
+  const navigateToProject = (projectId: string) => {
+    navigate(`/project/${projectId}`);
+  };
+
   return (
     <section id={SECTION_ID} className="py-20 bg-secondary/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -160,6 +167,7 @@ export function PortfolioSection() {
             <ProjectCard
               key={project.id}
               project={project}
+              onCardClick={navigateToProject} // 🔥 추가
               onOpenDemo={openExternalLink}
               onOpenGithub={openExternalLink}
             />
@@ -182,17 +190,29 @@ export function PortfolioSection() {
  */
 interface ProjectCardProps {
   project: ProjectData;
+  onCardClick: (projectId: string) => void; // 🔥 추가
   onOpenDemo: (url: string) => void;
   onOpenGithub: (url: string) => void;
 }
 
 function ProjectCard({
   project,
+  onCardClick, // 🔥 추가
   onOpenDemo,
   onOpenGithub,
 }: ProjectCardProps) {
+  // 🔥 카드 클릭 핸들러 추가
+  const handleCardClick = (e: React.MouseEvent) => {
+    // 버튼 클릭 시에는 카드 클릭 이벤트 무시
+    const target = e.target as HTMLElement;
+    if (target.closest('button')) {
+      return;
+    }
+    onCardClick(project.id);
+  };
+
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+    <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"       onClick={handleCardClick} >
       {/* 프로젝트 이미지 */}
       <div className="aspect-video overflow-hidden">
         <ImageWithFallback
@@ -234,7 +254,10 @@ function ProjectCard({
               variant="outline"
               size="sm"
               className="flex-1"
-              onClick={() => onOpenDemo(project.demoUrl!)}
+              onClick={(e) => {
+                e.stopPropagation(); // 🔥 추가: 버튼 클릭 시 카드 클릭 이벤트 막기
+                onOpenDemo(project.demoUrl!);
+              }}
             >
               <ExternalLink className="h-4 w-4 mr-1" />
               Live Demo
@@ -256,7 +279,10 @@ function ProjectCard({
               variant="outline"
               size="sm"
               className="flex-1"
-              onClick={() => onOpenGithub(project.githubUrl!)}
+              onClick={(e) => {
+                e.stopPropagation(); // 🔥 추가
+                onOpenGithub(project.githubUrl!);
+              }}
             >
               <Github className="h-4 w-4 mr-1" />
               View Code

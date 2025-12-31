@@ -74,7 +74,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-secondary/20 pt-16"
+      className="min-h-screen flex items-center justify-center bg-linear-to-br from-background to-secondary/20 pt-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
